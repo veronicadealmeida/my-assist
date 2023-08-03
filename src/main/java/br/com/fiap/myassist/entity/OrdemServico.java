@@ -41,8 +41,11 @@ public class OrdemServico {
     @Enumerated(EnumType.ORDINAL)
     private PrioridadeExecucaoEnum prioridade;
 
-//    Comentado pois apresentava erro
-//    private List<Tecnico> responsaveis;
+    @ManyToMany
+    @JoinTable(name = "TBL_REL_OS_TECNICO",
+            joinColumns = @JoinColumn(name = "ID_ORDEM_SERVICO"),
+            inverseJoinColumns = @JoinColumn(name = "ID_TECNICO"))
+    private List<Tecnico> responsaveis;
 
     @Column(name = "DT_SAIDA")
     private LocalDateTime dataSaida;
