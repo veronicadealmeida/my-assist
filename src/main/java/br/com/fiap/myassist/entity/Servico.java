@@ -1,10 +1,11 @@
 package br.com.fiap.myassist.entity;
 
-import br.com.fiap.myassist.record.servico.DadosCadastroServico;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -12,8 +13,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "TBL_SERVICO")
 public class Servico {
 
@@ -22,15 +21,14 @@ public class Servico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Descrição é obrigatória")
+    @Size(max = 80, message = "Descrição tem tamanho máximo de 50 caracteres")
     @Column(name = "TX_DESCRICAO")
     private String descricao;
 
+    @DecimalMin(value = "20.00", message = "Valor deve ser maior ou igual a 20 reais")
+    @Digits(fraction = 2, integer = 4, message = "Valor inválido para casas decimais")
     @Column(name = "NR_VALOR")
     private BigDecimal valor;
-
-    public Servico(DadosCadastroServico dados) {
-        this.descricao = dados.descricao();
-        this.valor = dados.valor();
-    }
 
 }

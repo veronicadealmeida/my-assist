@@ -23,7 +23,7 @@ public class Observacao {
     @Column(name = "TX_OBSERVACAO")
     private String texto;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID_ORDEM_SERVICO")
     private OrdemServico ordemServico;
 
