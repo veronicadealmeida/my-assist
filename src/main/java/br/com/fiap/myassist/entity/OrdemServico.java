@@ -3,7 +3,9 @@ package br.com.fiap.myassist.entity;
 import br.com.fiap.myassist.enums.PrioridadeExecucaoEnum;
 import br.com.fiap.myassist.enums.StatusExecucaoEnum;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -11,6 +13,8 @@ import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "TBL_ORDEM_SERVICO")
 public class OrdemServico {

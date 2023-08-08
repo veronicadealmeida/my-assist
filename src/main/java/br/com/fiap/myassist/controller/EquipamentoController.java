@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("equipamento")
+@RequestMapping("equipamentos")
 public class EquipamentoController {
     @Autowired
     private EquipamentoRepository repository;

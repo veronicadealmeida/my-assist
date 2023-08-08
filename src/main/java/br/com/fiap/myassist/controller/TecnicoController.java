@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("tecnico")
+@RequestMapping("tecnicos")
 public class TecnicoController {
 
     @Autowired
