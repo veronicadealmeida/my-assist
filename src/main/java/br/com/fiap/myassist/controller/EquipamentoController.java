@@ -1,32 +1,20 @@
 package br.com.fiap.myassist.controller;
 
-import br.com.fiap.myassist.entity.Equipamento;
-import br.com.fiap.myassist.record.equipamento.DadosCadastroEquipamento;
-import br.com.fiap.myassist.record.equipamento.DadosListagemEquipamento;
-import br.com.fiap.myassist.repository.EquipamentoRepository;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import br.com.fiap.myassist.enums.TipoEquipamentoEnum;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("equipamentos")
+@RequestMapping("/equipamentos")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class EquipamentoController {
-    @Autowired
-    private EquipamentoRepository repository;
-
-    @PostMapping
-    @Transactional
-    public void cadastrar(@RequestBody @Valid DadosCadastroEquipamento dados) {
-        repository.save(new Equipamento(dados));
+    @GetMapping("/tipos")
+    public List<TipoEquipamentoEnum> getTiposEquipamento() {
+        return List.of(TipoEquipamentoEnum.values());
     }
 
-    @GetMapping
-    public Page<DadosListagemEquipamento> listar(@PageableDefault(size = 10, sort = {"marca","modelo"}) Pageable paginacao){
-        return repository.findAll(paginacao).map(DadosListagemEquipamento::new);
-
-    }
 }

@@ -1,7 +1,6 @@
 package br.com.fiap.myassist.entity;
 
 import br.com.fiap.myassist.enums.TipoEquipamentoEnum;
-import br.com.fiap.myassist.record.equipamento.DadosCadastroEquipamento;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,6 +29,4 @@ public class Equipamento {
     @Enumerated(EnumType.STRING)
     private TipoEquipamentoEnum tipo;
 
-    public Equipamento(DadosCadastroEquipamento dados) {
-    }
 }

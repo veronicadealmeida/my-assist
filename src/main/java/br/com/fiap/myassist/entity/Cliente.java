@@ -1,13 +1,18 @@
 package br.com.fiap.myassist.entity;
 
 import br.com.fiap.myassist.enums.TipoDocumentoEnum;
-import br.com.fiap.myassist.record.cliente.DadosCadastroCliente;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "TBL_CLIENTE")
 public class Cliente extends Pessoa {
@@ -24,7 +29,4 @@ public class Cliente extends Pessoa {
     @Enumerated(EnumType.STRING)
     private TipoDocumentoEnum tipoDocumento;
 
-    public Cliente(DadosCadastroCliente dados) {
-        super();
-    }
 }
