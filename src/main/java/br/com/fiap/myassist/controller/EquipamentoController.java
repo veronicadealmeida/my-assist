@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/equipamentos")
 @CrossOrigin(origins = "*", maxAge = 3600)

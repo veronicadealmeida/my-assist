@@ -1,6 +1,5 @@
 package br.com.fiap.myassist;
 
-import org.flywaydb.core.Flyway;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.flyway.FlywayMigrationStrategy;
@@ -13,9 +12,6 @@ public class MyAssistApplication {
 		SpringApplication.run(MyAssistApplication.class, args);
 	}
 
-	@Bean
-	public FlywayMigrationStrategy repair() {
-		return Flyway::repair;
-	}
+
 
 }
