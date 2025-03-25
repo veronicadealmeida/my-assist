@@ -1,1 +1,1 @@
-web: java -jar build/libs/voll-med-api-0.jar
+web: java -jar target/my-assist-0.jar

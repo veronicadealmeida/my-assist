@@ -11,9 +11,10 @@
 	<groupId>br.com.fiap</groupId>
 	<artifactId>my-assist</artifactId>
 	<version>0</version>
+	<packaging>jar</packaging>
 	<name>my-assist</name>
 	<description>Demo project for Spring Boot</description>
-	<packaging>jar</packaging>
+	<url/>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
